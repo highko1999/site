@@ -1,0 +1,107 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Шапка */
+header {
+    background: #35424a;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+/* Секции */
+section {
+    padding: 2rem;
+    margin: 1rem auto;
+    max-width: 800px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    background: #35424a;      /* Темный фон */
+    color: black;
+    border: 2px solid #e8491d;  /* Яркая оранжевая рамка (как у ссылок) */
+    border-radius: 10px;
+    margin: 2rem auto;
+    max-width: 800px;
+
+}
+
+footer a {
+    position: relative; /* Это важно - чтобы всплывашка позиционировалась относительно ссылки */
+    color: #f0db4f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Создаем всплывающий текст */
+footer a::after {
+    content: "Перейти в мой дневник"; /* Текст всплывашки */
+    position: absolute;
+    bottom: 100%; /* Позиционируем над ссылкой */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* Центрируем и немного смещаем вниз */
+    background: #35424a;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: normal;
+    white-space: nowrap;
+    opacity: 0; /* Изначально невидима */
+    pointer-events: none; /* Чтобы не мешала клику */
+    transition: all 0.3s ease; /* Плавная анимация */
+}
+
+/* Класс для анимации */
+.pulse {
+    animation: pulse-animation 0.5s ease-in-out;
+}
+
+/* Сама анимация */
+@keyframes pulse-animation {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 0px rgba(240, 219, 79, 0.5);
+    }
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0 0 10px rgba(240, 219, 79, 1);
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 0px rgba(240, 219, 79, 0.5);
+    }
+}
+
+/* Показываем всплывашку при наведении */
+footer a:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Поднимаем на финальную позицию */
+}
+
+footer a {
+    color: #f0db4f; /* Ярко-желтый цвет (как у JavaScript) */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: white; /* Меняет цвет на белый при наведении */
+    text-decoration: underline;
+}
+/* Списки */
+ul {
+    padding-left: 20px;
+}
